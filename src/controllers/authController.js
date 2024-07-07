@@ -3,9 +3,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/userModel');
 const { registerValidation, loginValidation } = require('../validation/authValidation');
 
-// Register a new user
 exports.register = async (req, res) => {
-    // Validate the data before making a user
     const { error } = registerValidation(req.body);
     if (error) return res.status(400).json({ msg: error.details[0].message });
 
