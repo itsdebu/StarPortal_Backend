@@ -59,4 +59,6 @@ Explore the Notification Service API using Swagger UI:
 1. Clone the repository:
 
    ```sh
-   git clone <repository-url>
+   git clone https://github.com/itsdebu/StarPortal_Backend.git
+2. To run the application
+    npm run dev
