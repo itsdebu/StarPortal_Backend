@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  auth-service:
+    build:
+      context: ./auth-service
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_URI=mongodb+srv://Divyanshu:divyanshu@cluster0.xmbrjab.mongodb.net/
+      # Add other environment variables as needed
+    depends_on:
+      - mongo
+
+  notification-service:
+    build:
+      context: ./notification-service
+    ports:
+      - "5001:5001"
+    environment:
+      - MONGO_URI=mongodb+srv://Divyanshu:divyanshu@cluster0.xmbrjab.mongodb.net/
+      # Add other environment variables as needed
+    depends_on:
+      - mongo
+
+  # Add other services here, such as real-time service, database (e.g., MongoDB)
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data:
